@@ -1,6 +1,6 @@
 #---------------------------------------LIBRERIAS---------------------------------------------
 #BASE DE DATOS Demostracion
-from .models import Persona
+from .models import Persona,Estudios
 # Create your views here.
 
 #--------------------------------SERIALIZERS VIEWS----------------------------------
@@ -18,7 +18,10 @@ from .serializers import (
     PersonaSerializer,
     PersonaSerializer2,
     PersonaSerializerCount,
-    PersonPagination
+    PersonPagination,
+    EstudiosSerializer,
+    Estudios_Persona,
+    Estudios_Personalink
 )
 
 class PersonaAPIView(ListAPIView):
@@ -57,3 +60,20 @@ class PersonaAPISSCount(ListAPIView):
     def get_queryset(self):
         
         return Persona.objects.cantidad_apellidos_paternos()
+#----------------------------------------------------------------------
+class EstudiosAPPIView(ListAPIView):
+    serializer_class=EstudiosSerializer
+    queryset=Persona.objects.all()
+
+class Estudios_PersonaAPIView(ListAPIView):
+    serializer_class=Estudios_Persona
+    queryset=Estudios.objects.all()
+
+
+class PersonakAPIview(ListAPIView):
+    #formato json
+    serializer_class=Estudios_Personalink
+    queryset=Estudios.objects.all()
+
+
+    

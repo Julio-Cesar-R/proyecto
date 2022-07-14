@@ -10,9 +10,12 @@ from .managers import *
 class Persona(TimeStampedModel):
     
     
-    nombre = models.CharField("nombre", max_length=50)
+    nombre = models.CharField("Nombre", max_length=50)
     apellido_paterno = models.CharField("Apellido paterno", max_length=50)
     apellido_materno= models.CharField("Apellido materno", max_length=120,blank=True)
+    edad = models.PositiveIntegerField("Edad")
+    email = models.EmailField("E-mail", max_length=254)
+    telefono = models.CharField("Telefono", max_length=50)
     objects=PersonaManager()
 
 
@@ -29,3 +32,29 @@ class Persona(TimeStampedModel):
         return str(self.id)+" "+self.nombre+" "+self.   apellido_paterno+" "+self.apellido_materno
 #---------------------------------------------------------------------------------------------- 
 
+class Estudios(TimeStampedModel):
+    ESTUDIOS_CHOICES=(
+        ("0","Bachillerato"),
+        ("1","Licenciatura"),
+        ("2","Maestria"),
+        ("3","Doctorado"),
+        ("4","Otro"),
+    )   
+
+    estudiante= models.ForeignKey(
+        Persona, 
+        on_delete=models.CASCADE,
+        #Referencia de la relacion Libro y categoria
+        related_name='persona_estudios'
+    )
+    nombre_carrera = models.CharField("Carrera", max_length=50)
+    nivel_estudios=models.CharField("Nivel de estudios", max_length=50,choices=ESTUDIOS_CHOICES)
+    promedio = models.PositiveIntegerField("Promedio")
+
+    class Meta:
+        verbose_name="Estudios"
+        verbose_name_plural="Estudios"
+        ordering=["id"] 
+        
+    def __str__(self):
+        return str(self.id)+" "+self.nombre_carrera+" "+self.   nivel_estudios+" "+str(self.promedio)
