@@ -4,6 +4,7 @@ from .models import Persona,Estudios
 # Create your views here.
 
 #--------------------------------SERIALIZERS VIEWS----------------------------------
+#Serializadores vistas genericas
 from rest_framework.generics import (
     ListAPIView,
     RetrieveAPIView,
@@ -13,7 +14,7 @@ from rest_framework.generics import (
     
     
     )
-
+#Serializadores
 from .serializers import (
     PersonaSerializer,
     PersonaSerializer2,
@@ -23,7 +24,7 @@ from .serializers import (
     Estudios_Persona,
     Estudios_Personalink
 )
-
+#Serializadores , paginacion y managers
 class PersonaAPIView(ListAPIView):
     serializer_class=PersonaSerializer
     pagination_class=PersonPagination
@@ -48,7 +49,7 @@ class PersonaAPIDelete(RetrieveDestroyAPIView):
     serializer_class=PersonaSerializer
     queryset=Persona.objects.buscar_todo()
 #-------------------------------------------------------------------------------
-
+#Serializador con managers
 class PersonaAPISSView(ListAPIView):
     serializer_class=PersonaSerializer2
     pagination_class=PersonPagination
@@ -61,6 +62,7 @@ class PersonaAPISSCount(ListAPIView):
         
         return Persona.objects.cantidad_apellidos_paternos()
 #----------------------------------------------------------------------
+#Serializador relacional
 class EstudiosAPPIView(ListAPIView):
     serializer_class=EstudiosSerializer
     queryset=Persona.objects.all()
@@ -75,5 +77,7 @@ class PersonakAPIview(ListAPIView):
     serializer_class=Estudios_Personalink
     queryset=Estudios.objects.all()
 
+#-----------------------------------------------------------------
+#CONSULTA DE APIS
 
-    
+
