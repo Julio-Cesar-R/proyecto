@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+    Consulta detalle
+{% endblock titulo %}
+
+
+{% block headers %}
+{% include 'includes/headers.html' %} 
+{% endblock headers %}
+    
+    
+
+{% block content %}
+
+
+<h1>Consulta a la api detalle</h1>
+
+    Nombre:{{persona.nombre}}
+    <p></p>
+    Apellido paterno:{{persona.apellido_paterno}}
+    <p></p>
+    
+    {% if persona %}
+        
+    {% endif %}
+        {{persona.detail}}
+
+ 
+
+    
+{% endblock content %}
+    

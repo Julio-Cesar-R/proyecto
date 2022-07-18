@@ -63,7 +63,7 @@ class Estudios_Personalink(serializers.HyperlinkedModelSerializer):
 #-----------------------------------------------------------------------------------------------
 #Paginacion
 class PersonPagination(pagination.PageNumberPagination):
-    page_size=2
+    page_size=5
     max_page_size=100
 #-----------------------------------------------------------------------------------------------
 

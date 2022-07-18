@@ -15,7 +15,18 @@
 
 
 <h1>Consulta a la api</h1>
-{{object_list.title}}
+
+
+{% for persona in object_list.results %}
+    Nombre de la carrera:{{persona.nombre_carrera}}
+    <p></p>
+    Nombre:{{persona.estudiante.nombre}}
+    <p></p>
+    Apellido paterno:{{persona.estudiante.apellido_paterno}}
+    <p></p>
+
+ 
+{% endfor %}
 
     
 {% endblock content %}

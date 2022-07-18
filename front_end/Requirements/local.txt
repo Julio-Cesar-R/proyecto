@@ -11,3 +11,4 @@ tzdata==2022.1
 Unipath==1.1 
 django-model-utils==4.2.0
 djangorestframework==3.13.1
+jsonify

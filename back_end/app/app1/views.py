@@ -68,6 +68,7 @@ class EstudiosAPPIView(ListAPIView):
     queryset=Persona.objects.all()
 
 class Estudios_PersonaAPIView(ListAPIView):
+    pagination_class=PersonPagination
     serializer_class=Estudios_Persona
     queryset=Estudios.objects.all()
 

@@ -9,7 +9,7 @@ from django.views.generic import ListView,DetailView,CreateView,TemplateView,Upd
 #Importa redireccionamiento de urls
 from django.urls import reverse_lazy
 
-import requests,json
+from .services import *
 
 #-----------------------VISTAS------------------------------------
 class DemostracionCreateView(CreateView):
@@ -30,10 +30,21 @@ class ConsultaApi(ListView):
     context_object_name= "consulta"
     
     def get_queryset(self):
-        respuesta=requests.get("https://jsonplaceholder.typicode.com/posts/1")
-        print(f"El codigo de espuesta de la api es {respuesta.status_code}")
-        respuesta=json.loads(respuesta.text)
-        print("****************")
-        print(respuesta)
-        print(respuesta["title"])
+        url="http://127.0.0.1:8000/estudios_persona/api_view/"
+        respuesta=apilist(url)
         return respuesta
+
+
+
+class DetalleListView(ListView):
+    context_object_name="persona"
+    template_name = "app1/vistadetalle.html"
+    def get_queryset(self):
+        clave=self.kwargs["pk"]
+        respuesta=api_detail(clave)
+        print("------------------------")
+        print(respuesta)
+
+        return respuesta
+
+
