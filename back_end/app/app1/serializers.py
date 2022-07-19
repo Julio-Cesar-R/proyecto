@@ -21,8 +21,8 @@ class PersonaSerializer2(serializers.Serializer):
 #Serializador de estudios
 class EstudiosSerializer(serializers.ModelSerializer):
     class Meta:
-        model=Persona
-        ffields=('id',
+        model=Estudios
+        fields=('id',
         'nombre_carrera',
         'nivel_estudios',
         'promedio',
