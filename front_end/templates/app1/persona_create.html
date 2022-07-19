@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+    Metodo post
+{% endblock titulo %}
+
+
+{% block headers %}
+{% include 'includes/headers.html' %} 
+{% endblock headers %}
+    
+    
+
+{% block content %}
+
+<form method="POST">
+    {% csrf_token %}
+    <div class="grid-container">
+        <div class="grid-x">
+            <div class="cell">
+                <h1>Agregar persona</h1>
+            </div>
+            <div class="cell">
+                <h3>Datos empleados</h3>
+                
+                <p> Nombre:{{form.nombre}}</p>
+                <p>Apellido paterno:{{form.apellido_paterno}}</p>
+                <p>Apellido Materno:{{form.apellido_materno}}</p>
+                <p>Edad:{{form.edad}}</p>
+                <p>Email:{{form.email}}</p>
+                <p>Telefono:{{form.telefono}}</p>
+
+            </div>
+
+            <div class="cell">
+                <button class="button success" type="submit" >Guardar</button>
+
+            </div>
+        </div>
+    </div>
+        
+</form>
+
+
+    
+{% endblock content %}
+    

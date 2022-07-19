@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+    Consultar personas
+{% endblock titulo %}
+
+
+{% block headers %}
+{% include 'includes/headers.html' %} 
+{% endblock headers %}
+    
+    
+
+{% block content %}
+
+
+<h1>Consultar personas</h1>
+
+
+{% for persona in personas.results %}
+    Nombre:{{persona.nombre}}
+    <p></p>
+    Apellido paterno:{{persona.apellido_paterno}}
+    <p></p>
+    Apellido materno:{{persona.apellido_materno}}
+    <p></p>
+
+ 
+{% endfor %}
+
+    
+{% endblock content %}
+    

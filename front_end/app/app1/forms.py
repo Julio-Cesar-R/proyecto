@@ -1,4 +1,4 @@
-import imp
+
 from tkinter import Widget
 from django import forms
 from .models import Demostracion
@@ -17,3 +17,10 @@ class DemostracionForm(forms.ModelForm):
             
             )
 
+class PersonaForm(forms.Form):
+    nombre = forms.CharField(max_length=50, required=False)    
+    apellido_paterno = forms.CharField( max_length=50, required=False)
+    apellido_materno = forms.CharField( max_length=50, required=False)
+    edad=forms.IntegerField()
+    email = forms.EmailField( required=False)
+    telefono = forms.CharField( max_length=10, required=False)

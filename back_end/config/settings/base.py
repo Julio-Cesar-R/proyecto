@@ -42,6 +42,7 @@ LOCAL_APPS=(
 THIRD_PARTY_APPS=(
     "ckeditor",
     "rest_framework",
+    #Documentacion
     "drf_yasg",)
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
