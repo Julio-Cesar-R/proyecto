@@ -48,6 +48,7 @@ class ConsultaApi(ListView):
     def get_queryset(self):
         url="http://127.0.0.1:8000/estudios_persona/api_view/"
         respuesta=apilist(url)
+        print("***************************************")
         return respuesta
 
 

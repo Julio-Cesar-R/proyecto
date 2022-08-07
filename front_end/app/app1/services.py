@@ -7,7 +7,7 @@ def apilist(url):
     print(f"El codigo de espuesta de la api es {response.status_code}")
     response=json.loads(response.text)
     print("++++++++++++++++++++++")
-    print(response)
+    #print(response)
     print("********************")
     print(response["results"])
     print("===========================")
